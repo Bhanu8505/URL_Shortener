@@ -1,6 +1,5 @@
 import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
-import CopyToClipboard from "react-copy-to-clipboard";
 import { FaExternalLinkAlt, FaRegCalendarAlt } from "react-icons/fa";
 import { IoCopy } from "react-icons/io5";
 import { LiaCheckSolid } from "react-icons/lia";
@@ -120,21 +119,22 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
         </div>
 
         <div className="flex  flex-1  sm:justify-end items-center gap-4">
-          <CopyToClipboard
-            onCopy={() => setIsCopied(true)}
-            text={`${
-              import.meta.env.VITE_REACT_FRONT_END_URL + "/s/" + `${shortUrl}`
-            }`}
+          <div
+            onClick={() => {
+              navigator.clipboard.writeText(
+                `${import.meta.env.VITE_REACT_FRONT_END_URL}/s/${shortUrl}`
+              );
+              setIsCopied(true);
+            }}
+            className="flex cursor-pointer gap-1 items-center bg-blue-500 py-2 font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white"
           >
-            <div className="flex cursor-pointer gap-1 items-center bg-blue-500 py-2  font-semibold shadow-md shadow-slate-500 px-6 rounded-md text-white ">
-              <button className="">{isCopied ? "Copied" : "Copy"}</button>
-              {isCopied ? (
-                <LiaCheckSolid className="text-md" />
-              ) : (
-                <IoCopy className="text-md" />
-              )}
-            </div>
-          </CopyToClipboard>
+            <button className="">{isCopied ? "Copied" : "Copy"}</button>
+            {isCopied ? (
+              <LiaCheckSolid className="text-md" />
+            ) : (
+              <IoCopy className="text-md" />
+            )}
+          </div>
 
           <div
             onClick={() => analyticsHandler(shortUrl)}
