@@ -82,10 +82,10 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
               target="_"
               className="text-[17px]  font-montserrat font-[600] text-linkColor"
               to={
-                import.meta.env.VITE_REACT_FRONT_END_URL + "/s/" + `${shortUrl}`
+                import.meta.env.VITE_REACT_FRONT_END_URL + "/" + `${shortUrl}`
               }
             >
-              {subDomain + "/s/" + `${shortUrl}`}
+              {/* {subDomain + "/" + `${shortUrl}`} */}
             </Link>
             <FaExternalLinkAlt className="text-linkColor" />
           </div>
@@ -122,7 +122,7 @@ const ShortenItem = ({ originalUrl, shortUrl, clickCount, createdDate }) => {
           <div
             onClick={() => {
               navigator.clipboard.writeText(
-                `${import.meta.env.VITE_REACT_FRONT_END_URL}/s/${shortUrl}`
+                `${import.meta.env.VITE_REACT_FRONT_END_URL}/${shortUrl}`
               );
               setIsCopied(true);
             }}
