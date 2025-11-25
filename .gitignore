@@ -23,3 +23,58 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+############################
+# Maven
+############################
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Maven Wrapper
+.mvn/
+mvnw
+mvnw.cmd
+
+############################
+# IntelliJ IDEA
+############################
+.idea/
+*.iws
+*.iml
+*.ipr
+
+############################
+# Logs
+############################
+*.log
+
+############################
+# OS-specific
+############################
+.DS_Store
+Thumbs.db
+
+############################
+# Java
+############################
+*.class
+*.jar
+*.war
+*.ear
+
+############################
+# Environment / Secrets
+############################
+.env
+*.env
+
+############################
+# Temporary files
+############################
+*.tmp
+*.temp
+*.swp
